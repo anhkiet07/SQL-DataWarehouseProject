@@ -1,11 +1,42 @@
+# Modern Data Warehouse & Analytics Platform: End-to-End Business Intelligence Solution
+
+![SQL Server](https://img.shields.io/badge/SQL%20Server-CC292B?style=flat&logo=microsoft-sql-server&logoColor=white)
+![Data Engineering](https://img.shields.io/badge/Fields-Data%20Engineering%20%7C%20Business%20Intelligence-success)
+![Architecture](https://img.shields.io/badge/Architecture-Medallion%20(Bronze%2C%20Silver%2C%20Gold)-blue)
+
 Welcome to the **Data Warehouse and Analytics Project** repository!  
 This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights.
 
 ---
+
 ## Data Architecture
 
 The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 ![Data Architecture]
+
+```text
+   [ ERP System ]      [ CRM System ]  (Source Flat CSV Files)
+          │                  │
+          └──────────┬───────┘
+                     │
+                     ▼
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ 1. BRONZE LAYER (Raw Ingestion Zone)                            │
+  │    - Stores raw data as-is from the source systems.             │
+  └────────────────────────┬────────────────────────────────────────┘
+                           │
+                           ▼
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ 2. SILVER LAYER (Cleansing & Standardization Zone)             │
+  │    - Includes data cleansing, standardization, and normalization.│
+  └────────────────────────┬────────────────────────────────────────┘
+                           │
+                           ▼
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ 3. GOLD LAYER (Business-Ready Analytical Zone)                 │
+  │    - Houses business-ready data modeled into a Star Schema.     │
+  └─────────────────────────────────────────────────────────────────┘
+``` 
 
 1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
 2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
